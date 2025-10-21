@@ -1,0 +1,33 @@
+# OS / Python
+.DS_Store
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Logs 
+*.log
+.locks/
+
+# 実行結果は除外
+outputs/*
+predictions/*
+judged/*
+leaderboard/*
+
+# フォルダ保持用の .gitkeep は除外しない
+!outputs/.gitkeep
+!predictions/.gitkeep
+!judged/.gitkeep
+!leaderboard/.gitkeep
+
+# Models / Checkpoints / Large artifacts
+models--*/
+*.pt
+*.bin
+*.safetensors
+*.ckpt
+
+# Jupyter
+.ipynb_checkpoints/

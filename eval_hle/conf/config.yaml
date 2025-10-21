@@ -1,0 +1,22 @@
+dataset: cais/hle
+
+provider: vllm
+
+base_url: http://localhost:8000/v1
+
+# 推論モデル
+model: Qwen/Qwen2.5-0.5B-Instruct
+#model: r1_2nodes_final
+
+max_completion_tokens: 16384
+reasoning: true
+
+# num_workersを上げることで推論効率を上げることができる。
+# OpenAPIを使う場合は、APIの制限にかからないように、num_workersは30程度を推奨。
+num_workers: 30
+
+# sample with multimodal is 2500, so text-only sample is about 2400
+max_samples: 48
+
+# 評価モデル
+judge: o3-mini-2025-01-31
