@@ -1,0 +1,28 @@
+# OS / Python
+.DS_Store
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# logs
+*.log
+
+# eval_hle 実行生成物は除外し、.gitkeep は許可
+eval_hle/outputs/*
+!eval_hle/outputs/.gitkeep
+eval_hle/predictions/*
+!eval_hle/predictions/.gitkeep
+eval_hle/judged/*
+!eval_hle/judged/.gitkeep
+eval_hle/leaderboard/*
+!eval_hle/leaderboard/.gitkeep
+
+# 大きなモデル/チェックポイント（念のため）
+eval_hle/models--*/
+*.pt
+*.bin
+*.safetensors
+*.ckpt
