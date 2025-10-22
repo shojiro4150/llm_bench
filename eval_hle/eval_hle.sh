@@ -1,16 +1,12 @@
 #!/bin/bash
 
-#--- CPU Memoryエラー対策 ------------------------------------------
-#ulimit -v unlimited
-#ulimit -m unlimited
-
 #--- 認証 ---------------------------------------------------------
 #export OPENAI_API_KEY="your_key"
 #export HF_TOKEN="your_key"
 
-#--- GPU 監視 -----------------------------------------------------
-nvidia-smi -i 0,1,2,3,4,5,6,7 -l 3 > nvidia-smi.log &
-pid_nvsmi=$!
+#--- GPU 監視 (mac利用不可)------------------------------------------
+#nvidia-smi -i 0,1,2,3,4,5,6,7 -l 3 > nvidia-smi.log &
+#pid_nvsmi=$!
 
 #--- 必要なディレクトリを作成 -----------------------------------------
 mkdir -p predictions
@@ -22,7 +18,6 @@ vllm serve Qwen/Qwen2.5-0.5B-Instruct \
   --max-model-len 32768 \
   --max-num-batched-tokens 32768 \
   --override-generation-config '{"temperature": 0}' \
-  --gpu-memory-utilization 0.9 \
   > vllm.log 2>&1&
 pid_vllm=$!
 
@@ -53,5 +48,5 @@ python judge.py > judge.log 2>&1
 
 #--- 後片付け -------------------------------------------------------
 kill $pid_vllm
-kill $pid_nvsmi
+#kill $pid_nvsmi
 wait
