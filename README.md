@@ -1,4 +1,3 @@
-````markdown
 # llm_bench — vLLM on Apple Silicon
 
 このリポジトリは、**Apple Silicon (M1〜M4)** 上で **vLLM** をCPUバックエンドとして動作させ、  
