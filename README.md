@@ -42,23 +42,16 @@ llm_bench/
    pip install -r eval_hle/requirements.txt
    ```
 
-2. **vLLMの起動（CPUバックエンド）**
-
-   ```bash
-   vllm serve Qwen/Qwen2.5-0.5B-Instruct --port 8000 --dtype float16
-   ```
-
-3. **HLE評価実行**
+2. **vLLM起動 & HLE評価 バッチ実行**
 
    ```bash
    cd eval_hle
-   chmod +x eval_hle.sh
    zsh eval_hle.sh
    ```
 
 ---
 
-## 評価設定（例）
+## 評価設定例 (config.yaml)
 
 ```yaml
 dataset: cais/hle
@@ -105,7 +98,7 @@ num_workers: 30
 
 ## 参考記事
 
-[【Apple Silicon対応】Mac(M1〜M4)でvLLMを動かしてLLMをベンチマークしてみた](https://example.com)
+[【Apple Silicon対応】Mac(M1〜M4)でvLLMを動かしてLLMをベンチマークしてみた](https://qiita.com/shojiro4150/items/c8a437dee4c57847457e)
 
 ---
 
